@@ -21,14 +21,29 @@
 <body>
 
 <div>
-    {{--<div class="float">
+    <div class="float">
+
+        <form action="{{ route('member-store') }}" method="post">
+            @csrf
+            <input type="text" name="name" placeholder="name"> &nbsp;&nbsp; |
+            <input type="text" name="email" placeholder="email"> &nbsp;&nbsp; |
+            <input type="text" name="phone" placeholder="phone"> &nbsp;&nbsp; |
+            <input type="text" name="address" placeholder="address"> &nbsp;&nbsp; |
+            <button>Save</button>
+        </form>
+        <hr>
+
         <h2>Name</h2>
+        @php
+          $sprint = 1
+        @endphp
 
         @foreach($members as $member)
-            <h4>-> {{ $member->name }}</h4>
+
             <hr>
+            <h4> {{ $sprint++ }}. {{ $member->name }}</h4>
         @endforeach
-    </div>--}}
+    </div>
     <div>
         <div class="main-tbl">
             @foreach($members as $member)

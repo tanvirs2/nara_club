@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Member;
+use App\Models\Game;
 use Illuminate\Http\Request;
 
-class MemberController extends Controller
+class GameController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,29 +35,16 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        $request->validate([
-            "name" => "required"
-        ]);
-
-        $member = new Member();
-        $member->name = $request->name;
-        $member->email = $request->email;
-        $member->phone = $request->phone;
-        $member->address = $request->address;
-
-        $member->save();
-
-        return redirect()->back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Member  $member
+     * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function show(Member $member)
+    public function show(Game $game)
     {
         //
     }
@@ -65,10 +52,10 @@ class MemberController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Member  $member
+     * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function edit(Member $member)
+    public function edit(Game $game)
     {
         //
     }
@@ -77,10 +64,10 @@ class MemberController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Member  $member
+     * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member)
+    public function update(Request $request, Game $game)
     {
         //
     }
@@ -88,10 +75,10 @@ class MemberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Member  $member
+     * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Member $member)
+    public function destroy(Game $game)
     {
         //
     }

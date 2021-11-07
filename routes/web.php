@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//score
 Route::get('/', 'DashboardController@index')->name('home');
 Route::post('score-store/', 'ScoreController@store')->name('score-store');
 Route::put('score-update/{score}', 'ScoreController@update')->name('score-update');
+
+//member
+Route::post('member-store/', 'MemberController@store')->name('member-store');

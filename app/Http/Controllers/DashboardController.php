@@ -13,7 +13,7 @@ class DashboardController extends Controller
 
         //$query = $query->where('name', 'ff');
 
-        $members = $query->get();
+        $members = $query->orderBy('id', 'desc')->get();
 
         //$members->load('score');
         //dd($members);
