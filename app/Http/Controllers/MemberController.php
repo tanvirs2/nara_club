@@ -37,11 +37,13 @@ class MemberController extends Controller
     {
         //dd($request->all());
         $request->validate([
-            "name" => "required"
+            "name" => "required",
+            "game_id" => "required",
         ]);
 
         $member = new Member();
         $member->name = $request->name;
+        $member->game_id = $request->game_id;
         $member->email = $request->email;
         $member->phone = $request->phone;
         $member->address = $request->address;

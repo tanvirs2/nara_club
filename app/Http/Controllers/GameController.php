@@ -35,7 +35,17 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $request->validate([
+            "name" => "required",
+        ]);
+
+        $member = new Game();
+        $member->name = $request->name;
+
+        $member->save();
+
+        return redirect()->back();
     }
 
     /**

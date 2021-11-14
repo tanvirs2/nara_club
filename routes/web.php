@@ -24,3 +24,6 @@ Route::put('score-update/{score}', 'ScoreController@update')->name('score-update
 
 //member
 Route::post('member-store/', 'MemberController@store')->name('member-store');
+
+//game
+Route::post('game-store/', 'GameController@store')->name('game-store');
