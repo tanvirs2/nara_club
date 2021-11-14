@@ -29,9 +29,9 @@
     <br>
 </form>
 
-@if($type == 'single')
+@if($type == 'single' && isset($games->member))
     @php
-    //dd($games->member);
+      //dd($games->member);
         $game = $games;
         $members = $game->member;
     @endphp
