@@ -1,33 +1,39 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <title>Document</title>
     <style>
-        table {border:1px solid #1804f6; display: inline-block; margin: 10px}
-        tr, td {border:1px solid black; padding: 5px}
-        input {outline: none;border: hidden;width: 80px}
-        .main-tbl {overflow-x: scroll; white-space: nowrap}
-        .main-tbl-list {overflow-x: hidden; white-space: nowrap; border: 1px solid black; margin-bottom: 10px; padding: 3px;} /*#fa0202 box-shadow: 2px 2px 5px rgba(32,32,32,0.8)*/
-        .float {
-            float: left;
-            padding: 10px;
-            border: 1px solid black;
-        }
+        input {outline: none;border: hidden;width: 60px}
+        #main-tbl-list {overflow-x: hidden; white-space: nowrap; border: 1px solid black; margin-bottom: 10px; padding: 3px;} /*#fa0202 box-shadow: 2px 2px 5px rgba(32,32,32,0.8)*/
+
     </style>
 </head>
 <body>
 
-<form action="{{ route('game-store') }}" method="post">
-    @csrf
-    <input type="text" name="name" placeholder="Game name"> &nbsp;&nbsp; |
-    <button>Start new Game</button>
-    <br>
-    <br>
-</form>
+<div class="container-fluid">
+    <div>
+        <div class="row">
+            <div class="col">
+                <form action="{{ route('game-store') }}" method="post">
+                    @csrf
+                    <input type="text" name="name" placeholder="Game name"> &nbsp;&nbsp; |
+                    <button>Start new Game</button>
+                    <br>
+                    <br>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
 
 @if($type == 'single' && isset($games->member))
     @php
@@ -52,6 +58,7 @@
 
 @endif
 
+</div>
 
 
 
@@ -60,6 +67,8 @@
 
 
 
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="{{asset('js/app.js')}}"></script>
 
 </body>
 </html>
