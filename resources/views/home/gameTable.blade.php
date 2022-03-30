@@ -24,10 +24,16 @@
     </div>
 
     <div class="row">
+        @php
+
+            $colorIndex = 1;
+
+        @endphp
+
         @foreach($members as $member)
 
             <div class="col ms-3 p-0">
-                <div>
+                <div style="background: {{ isset($colors[$colorIndex]) ? $colors[$colorIndex++] : $colors[0] }}">
 
                     <table class="table table-bordered">
                         <tr>
@@ -56,7 +62,7 @@
 
                                         <input type="number" name="score" size="6" value="{{ $score->score }}">
 
-                                        <button>Update</button>
+                                        <button>Up</button>
 
 
 
@@ -83,7 +89,7 @@
                                     @csrf
                                     <input type="hidden" name="member_id" value="{{ $member->id }}">
                                     <input type="text" name="score" >
-                                    <button>Save</button>
+                                    <button>Sv</button>
                                 </form>
                             </td>
                         </tr>

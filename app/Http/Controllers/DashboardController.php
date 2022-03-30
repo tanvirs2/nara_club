@@ -32,7 +32,21 @@ class DashboardController extends Controller
         //dd($members);
         //dd(Member::find(1)->score);
 
-        $comp = compact('games', 'type');
+        /*$colors = [
+            '',
+            '#74b9ff',
+            '#fab1a0',
+            '#ffeaa7',
+            '#81ecec',
+            '#fd79a8',
+            '#a29bfe',
+            '#e17055',
+        ];*/
+        $colors = [
+            ''
+        ];
+
+        $comp = compact('games', 'type', 'colors');
 
         //return $members;
         return view('home.index', $comp);

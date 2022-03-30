@@ -10,6 +10,9 @@
 
     <title>Document</title>
     <style>
+        body {
+            font-size: 150%;
+        }
         input {outline: none;border: hidden;width: 60px}
         #main-tbl-list {overflow-x: hidden; white-space: nowrap; border: 1px solid black; margin-bottom: 10px; padding: 3px;} /*#fa0202 box-shadow: 2px 2px 5px rgba(32,32,32,0.8)*/
 
