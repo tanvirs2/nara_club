@@ -23,7 +23,7 @@
                         <input type="text" name="email" placeholder="email">
                         <input type="text" name="phone" placeholder="phone">
                         <input type="text" name="address" placeholder="address">
-                        <button>Save Player</button>
+                        <button class="btn btn-outline-success">Save Player</button>
                     </form>
                 </div>
 
@@ -77,7 +77,7 @@
                                                     <input type="number" name="score" size="6" value="{{ $score->score }}">
                                                 </td>
                                                 <td>
-                                                    <button>Up</button>
+                                                    <button class="btn btn-sm btn-outline-dark">Update</button>
                                                 </td>
                                             </tr>
                                         </table>
@@ -111,7 +111,7 @@
                                                 <input type="text" name="score" >
                                             </td>
                                             <td>
-                                                <button>Sv</button>
+                                                <button class="btn btn-sm btn-dark">Save</button>
                                             </td>
                                         </tr>
                                     </table>

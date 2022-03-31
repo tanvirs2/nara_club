@@ -27,8 +27,8 @@
             <div class="col">
                 <form action="{{ route('game-store') }}" method="post">
                     @csrf
-                    <input type="text" name="name" placeholder="Game name"> &nbsp;&nbsp; |
-                    <button>Start new Game</button>
+                    <input type="text" name="name" placeholder="Game name" style="width: 150px"> &nbsp;&nbsp;
+                    <button class="btn btn-outline-success">Start new Game</button>
                     <a class="btn btn-primary" href="{{ route('home', ['games' => 'all']) }}">All</a>
                     <br>
                     <br>
