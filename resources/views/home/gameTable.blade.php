@@ -6,7 +6,12 @@
         <div class="col">
             <div class="m-3">
                 <b class="text-info">{{ $game->name }}</b>
-                {{--<a class="btn btn-warning" href="{{ route('home', ['id' => $game->id]) }}" target="_blank">Open this Game to different tab</a>--}}
+
+                @if($type !== 'single')
+
+                    <a class="btn btn-warning" href="{{ route('home', ['id' => $game->id]) }}" target="_blank">Open this Game to different tab</a>
+
+                @endif
 
                 <br>
 
@@ -66,9 +71,16 @@
                                         @csrf
                                         <input type="hidden" name="member_id" size="6" value="{{ $member->id }}">
 
-                                        <input type="number" name="score" size="6" value="{{ $score->score }}">
-
-                                        <button>Up</button>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <input type="number" name="score" size="6" value="{{ $score->score }}">
+                                                </td>
+                                                <td>
+                                                    <button>Up</button>
+                                                </td>
+                                            </tr>
+                                        </table>
 
                                     </form>
 
@@ -92,8 +104,18 @@
                                 <form action="{{ route('score-store') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="member_id" value="{{ $member->id }}">
-                                    <input type="text" name="score" >
-                                    <button>Sv</button>
+
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <input type="text" name="score" >
+                                            </td>
+                                            <td>
+                                                <button>Sv</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+
                                 </form>
                             </td>
                         </tr>

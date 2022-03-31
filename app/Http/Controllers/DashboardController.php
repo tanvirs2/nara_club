@@ -29,6 +29,7 @@ class DashboardController extends Controller
 
 
 
+        //dd(count($games));
         //dd($games);
 
         //orderBy('id', 'desc')->first();
