@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col">
             <div class="m-3">
-                <b class="text-info">{{ $game->name }}</b> <a class="btn btn-warning" href="{{ route('home', ['id' => $game->id]) }}" target="_blank">Open this Game to different tab</a>
+                <b class="text-info">{{ $game->name }}</b>
+                {{--<a class="btn btn-warning" href="{{ route('home', ['id' => $game->id]) }}" target="_blank">Open this Game to different tab</a>--}}
 
                 <br>
 
