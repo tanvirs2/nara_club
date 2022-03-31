@@ -5,17 +5,22 @@
     <div class="row">
         <div class="col">
             <div class="m-3">
-                <b class="text-info">{{ $game->name }}</b> <a class="btn btn-warning" href="{{ route('home', ['id' => $game->id]) }}" target="_blank">Open</a>
+                <b class="text-info">{{ $game->name }}</b> <a class="btn btn-warning" href="{{ route('home', ['id' => $game->id]) }}" target="_blank">Open this Game to different tab</a>
 
-                <form action="{{ route('member-store') }}" method="post">
-                    @csrf
-                    <input type="hidden" name="game_id" size="6" value="{{ $game->id }}">
-                    <input type="text" name="name" placeholder="name">
-                    <input type="text" name="email" placeholder="email">
-                    <input type="text" name="phone" placeholder="phone">
-                    <input type="text" name="address" placeholder="address">
-                    <button>Save Player</button>
-                </form>
+                <br>
+
+                <div class="mt-3">
+                    <form action="{{ route('member-store') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="game_id" size="6" value="{{ $game->id }}">
+                        <input type="text" name="name" placeholder="name">
+                        <input type="text" name="email" placeholder="email">
+                        <input type="text" name="phone" placeholder="phone">
+                        <input type="text" name="address" placeholder="address">
+                        <button>Save Player</button>
+                    </form>
+                </div>
+
 
                 <hr class="bg-danger border border-danger">
 
