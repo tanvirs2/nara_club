@@ -1,6 +1,6 @@
 
 
-<div class="border border-dark pe-3 mb-5 game-frame-for-js">
+<div class="border border-dark pe-3 mb-5 game-frame-for-js" style="background: #ffffff">
 
     <div class="row">
         <div class="col">
