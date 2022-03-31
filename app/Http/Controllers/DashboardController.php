@@ -23,6 +23,16 @@ class DashboardController extends Controller
             $games = $query->orderBy('id', 'desc')->first();
         }
 
+        if ($request->has('id')) {
+            $games = $query->find($request->get('id'));
+        }
+
+
+
+        //dd($games);
+
+        //orderBy('id', 'desc')->first();
+
 
         //$games = $query->orderBy('id', 'desc');
         //dd($query->latest()->get());

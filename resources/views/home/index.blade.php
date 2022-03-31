@@ -29,6 +29,7 @@
                     @csrf
                     <input type="text" name="name" placeholder="Game name"> &nbsp;&nbsp; |
                     <button>Start new Game</button>
+                    <a class="btn btn-primary" href="{{ route('home', ['games' => 'all']) }}">All</a>
                     <br>
                     <br>
                 </form>
@@ -66,13 +67,49 @@
 
 
 
-
-
-
-
-
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="{{asset('js/app.js')}}"></script>
+<script>
+
+
+    window.onload = () => {
+        const gameFrames = document.querySelectorAll(".game-frame-for-js")
+
+        gameFrames.forEach((gameFrame, index)=>{
+
+            let prevScoresTd = gameFrame.querySelectorAll(".prev-score-td-for-js")
+
+            let scoreObj = [...prevScoresTd].map((prevScoreTd, scoreIndex)=>{
+
+                return {
+                    elm: prevScoreTd, prevScore: Number(prevScoreTd.innerText)
+                };
+
+            });
+
+            let collection = collect_js(scoreObj);
+
+            let maxObj = collection.first(item => item.prevScore === collection.max('prevScore'))
+            let minObj = collection.first(item => item.prevScore === collection.min('prevScore'))
+
+
+            //maxObj && maxObj.elm.parentElement.classList.add("bg-danger", "text-light");
+            //minObj && minObj.elm.parentElement.classList.add("bg-success", "text-light");
+
+            //maxObj && maxObj.elm.parentElement.classList.remove("text-dark");
+            //minObj && minObj.elm.parentElement.classList.remove("text-dark");
+
+
+            //console.log(index, '--->', maxObj );
+
+        });
+
+
+        //prevScore prev-score-td-for-js
+    }
+
+</script>
+
 
 </body>
 </html>

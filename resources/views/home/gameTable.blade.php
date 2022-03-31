@@ -1,11 +1,11 @@
 
 
-<div class="border border-dark pe-3 mb-5">
+<div class="border border-dark pe-3 mb-5 game-frame-for-js">
 
     <div class="row">
         <div class="col">
             <div class="m-3">
-                <h3 class="text-info">{{ $game->name }}</h3>
+                <b class="text-info">{{ $game->name }}</b> <a class="btn btn-warning" href="{{ route('home', ['id' => $game->id]) }}" target="_blank">Open</a>
 
                 <form action="{{ route('member-store') }}" method="post">
                     @csrf
@@ -64,8 +64,6 @@
 
                                         <button>Up</button>
 
-
-
                                     </form>
 
                                 </td>
@@ -79,9 +77,9 @@
 
                         {{--Score save area--}}
                         <tr>
-                            <td>
+                            <td class="text-dark">
 
-                                <b class="text-dark">{{ $prevScore }}</b>
+                                <b class="prev-score-td-for-js">{{ $prevScore }}</b>
 
                             </td>
                             <td>
