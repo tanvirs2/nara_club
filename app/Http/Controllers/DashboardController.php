@@ -43,7 +43,7 @@ class DashboardController extends Controller
         //dd($members);
         //dd(Member::find(1)->score);
 
-        /*$colors = [
+        $colors = [
             '',
             '#74b9ff',
             '#fab1a0',
@@ -52,10 +52,10 @@ class DashboardController extends Controller
             '#fd79a8',
             '#a29bfe',
             '#e17055',
-        ];*/
-        $colors = [
-            ''
         ];
+        /*$colors = [
+            ''
+        ];*/
 
         $comp = compact('games', 'type', 'colors');
 

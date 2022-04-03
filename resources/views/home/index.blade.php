@@ -71,6 +71,22 @@
 <script src="{{asset('js/app.js')}}"></script>
 <script>
 
+/*
+
+    (function() {
+
+        //statements...
+
+    })();
+
+    (function (window) {
+        window.__env = window.__env || {};
+
+        window.__env.apiBaseUrl = "https://data.connectify.me:4433";
+
+    }(this));
+
+*/
 
     window.onload = () => {
         const gameFrames = document.querySelectorAll(".game-frame-for-js")
@@ -96,8 +112,8 @@
             maxObj && maxObj.elm.parentElement.classList.add("bg-danger", "text-light");
             minObj && minObj.elm.parentElement.classList.add("bg-success", "text-light");
 
-            //maxObj && maxObj.elm.parentElement.classList.remove("text-dark");
-            //minObj && minObj.elm.parentElement.classList.remove("text-dark");
+            maxObj && maxObj.elm.parentElement.classList.remove("text-dark");
+            minObj && minObj.elm.parentElement.classList.remove("text-dark");
 
 
             //console.log(index, '--->', maxObj );

@@ -74,7 +74,7 @@
                                         <table>
                                             <tr>
                                                 <td>
-                                                    <input type="number" name="score" size="6" value="{{ $score->score }}">
+                                                    <input type="number" name="score" size="6" value="{{ $score->score }}" style="background: {{$colors[$colorIndex-1]}}">
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-sm btn-outline-dark">Update</button>
@@ -108,7 +108,7 @@
                                     <table>
                                         <tr>
                                             <td>
-                                                <input type="text" name="score" >
+                                                <input type="text" name="score" style="background: {{$colors[$colorIndex-1]}}">
                                             </td>
                                             <td>
                                                 <button class="btn btn-sm btn-dark">Save</button>
