@@ -55,7 +55,7 @@
                             $prevScore = 0;
                         @endphp
 
-                        @foreach($member->score as $score)
+                        @foreach($member->score as $k=>$score)
 
                             <tr>
                                 <td>
@@ -66,23 +66,60 @@
 
                                 </td>
                                 <td>
-                                    <form action="{{ route('score-update', $score->id) }}" method="post">
-                                        @method('PUT')
-                                        @csrf
-                                        <input type="hidden" name="member_id" size="6" value="{{ $member->id }}">
 
-                                        <table>
+                                    @if((count($member->score) - $k) == 1 )
+                                        <form action="{{ route('score-update', $score->id) }}" method="post">
+                                            @method('PUT')
+                                            @csrf
+                                            <input type="hidden" name="member_id" size="6" value="{{ $member->id }}">
+
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <input type="number" name="score" size="6" value="{{ $score->score }}" style="background: {{$colors[$colorIndex-1]}}">
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark">Update</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </form>
+                                    @else
+
+                                        <form action="{{ route('score-update', $score->id) }}" method="post">
+                                            @method('PUT')
+                                            @csrf
+                                            <input type="hidden" name="member_id" size="6" value="{{ $member->id }}">
+
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <input type="number" name="score" size="6" value="{{ $score->score }}" style="background: {{$colors[$colorIndex-1]}}">
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-dark">Update</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </form>
+
+
+                                        {{--<table>
                                             <tr>
                                                 <td>
-                                                    <input type="number" name="score" size="6" value="{{ $score->score }}" style="background: {{$colors[$colorIndex-1]}}">
+                                                    {{ $score->score }}
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-outline-dark">Update</button>
+
                                                 </td>
                                             </tr>
-                                        </table>
+                                        </table>--}}
 
-                                    </form>
+                                    @endif
+
+
 
                                 </td>
                             </tr>
@@ -131,5 +168,20 @@
 
     <br>
 
-    
+    <div class="row">
+        <div class="col"></div>
+
+        <div class="col">
+            <div class="alert alert-success ms-3 d-flex justify-content-center" role="alert">
+                Winner : Name
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="alert alert-danger d-flex justify-content-center" role="alert">
+                Hunter : Name
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
 </div>

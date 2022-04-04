@@ -6,6 +6,12 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
+    //.env.club
+    /*public function bootstrap()
+    {
+        app()->loadEnvironmentFrom('.env.club');
+        parent::bootstrap();
+    }*/
     /**
      * The application's global HTTP middleware stack.
      *
