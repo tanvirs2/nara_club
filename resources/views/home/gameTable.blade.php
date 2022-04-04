@@ -94,8 +94,8 @@
                         @endforeach
 
                         {{--Score save area--}}
-                        <tr>
-                            <td class="text-dark">
+                        <tr class="bg-white">
+                            <td>
 
                                 <b class="prev-score-td-for-js">{{ $prevScore }}</b>
 
@@ -108,7 +108,7 @@
                                     <table>
                                         <tr>
                                             <td>
-                                                <input type="text" name="score" style="background: {{$colors[$colorIndex-1]}}">
+                                                <input type="text" name="score">
                                             </td>
                                             <td>
                                                 <button class="btn btn-sm btn-dark">Save</button>
@@ -128,4 +128,8 @@
 
         @endforeach
     </div>
+
+    <br>
+
+    
 </div>
