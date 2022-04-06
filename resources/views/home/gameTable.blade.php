@@ -87,26 +87,7 @@
                                         </form>
                                     @else
 
-                                        <form action="{{ route('score-update', $score->id) }}" method="post">
-                                            @method('PUT')
-                                            @csrf
-                                            <input type="hidden" name="member_id" size="6" value="{{ $member->id }}">
-
-                                            <table>
-                                                <tr>
-                                                    <td>
-                                                        <input type="number" name="score" size="6" value="{{ $score->score }}" style="background: {{$colors[$colorIndex-1]}}">
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-sm btn-outline-dark">Update</button>
-                                                    </td>
-                                                </tr>
-                                            </table>
-
-                                        </form>
-
-
-                                        {{--<table>
+                                        <table>
                                             <tr>
                                                 <td>
                                                     {{ $score->score }}
@@ -115,7 +96,7 @@
 
                                                 </td>
                                             </tr>
-                                        </table>--}}
+                                        </table>
 
                                     @endif
 
