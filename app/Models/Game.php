@@ -13,4 +13,9 @@ class Game extends Model
     {
         return $this->hasMany(Member::class);
     }
+
+    public function point()
+    {
+        return $this->hasOne(Point::class)->latest();
+    }
 }

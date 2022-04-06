@@ -15,23 +15,44 @@
 
                 <br>
 
-                <div class="mt-3">
-                    <form action="{{ route('member-store') }}" method="post">
-                        @csrf
-                        <input type="hidden" name="game_id" size="6" value="{{ $game->id }}">
-                        <input type="text" name="name" placeholder="name">
-                        <input type="text" name="email" placeholder="email">
-                        <input type="text" name="phone" placeholder="phone">
-                        <input type="text" name="address" placeholder="address">
-                        <button class="btn btn-outline-success">Save Player</button>
-                    </form>
+                <div class="row">
+                    <div class="col-5">
+                        <form action="{{ route('member-store') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="game_id" size="6" value="{{ $game->id }}">
+                            <input type="text" name="name" placeholder="name">
+                            <input type="text" name="email" placeholder="email">
+                            <input type="text" name="phone" placeholder="phone">
+                            <input type="text" name="address" placeholder="address">
+                            <button class="btn btn-outline-success">Save Player</button>
+                        </form>
+                    </div>
+
+                    <div class="col">
+                        <form action="{{ route('point-store') }}" method="post">
+                            @csrf
+                            <div class="row">
+                                <input type="hidden" name="game_id" size="6" value="{{ $game->id }}">
+
+                                <div class="col text-danger">Match Point - {{$game->point?$game->point->match_point: 0}} <input type="text" name="match_point" placeholder="Point"> </div>
+                                <div class="col text-danger">Club Point - {{$game->point?$game->point->club_point: 0}} <input type="text" name="club_point" placeholder="Point"> </div>
+                                <div class="col text-danger">
+                                    <button class="btn btn-success">Save Point</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
+
+
 
 
                 <hr class="bg-danger border border-danger">
 
             </div>
         </div>
+
     </div>
 
     <div class="row">

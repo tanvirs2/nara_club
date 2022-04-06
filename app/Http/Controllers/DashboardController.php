@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Game::with('member.score');
+        $query = Game::with('member.score', 'point');
         //$query = Member::with('score');
         //$query = $query->latest();
         //$query = $query->where('name', 'ff');

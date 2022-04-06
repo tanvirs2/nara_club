@@ -27,3 +27,6 @@ Route::post('member-store/', 'MemberController@store')->name('member-store');
 
 //game
 Route::post('game-store/', 'GameController@store')->name('game-store');
+
+//point
+Route::post('point-store/', 'PointController@store')->name('point-store');
