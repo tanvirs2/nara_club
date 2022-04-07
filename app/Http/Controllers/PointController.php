@@ -35,7 +35,9 @@ class PointController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        //dd(json_decode('{"name":"John", "age":30, "car":null}')->name);
+        //dd(json_decode($request->winner));
+        //dd(json_last_error());
 
         $request->validate([
             "match_point" => "integer|nullable",
@@ -47,9 +49,11 @@ class PointController extends Controller
 
 
         $point = new Point();
+        $point->game_id = $request->game_id;
         $point->match_point = $request->match_point ?? ($latest ? $latest->match_point : 0);
         $point->club_point = $request->club_point ?? ($latest ? $latest->club_point : 0);
-        $point->game_id = $request->game_id;
+        $point->winner = $request->winner ?? ($latest ? $latest->winner : 0);
+        $point->hunter = $request->hunter ?? ($latest ? $latest->hunter : 0);
 
         $point->save();
 

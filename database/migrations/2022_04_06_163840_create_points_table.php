@@ -18,6 +18,8 @@ class CreatePointsTable extends Migration
             $table->integer('game_id');
             $table->integer('match_point')->nullable();
             $table->integer('club_point')->nullable();
+            $table->string('winner')->nullable();
+            $table->string('hunter')->nullable();
             $table->timestamps();
         });
     }

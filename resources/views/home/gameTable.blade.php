@@ -36,8 +36,32 @@
 
                                 <div class="col text-danger">Match Point - {{ $game->point ? $game->point->match_point : 0 }} <input type="text" name="match_point" placeholder="Point"> </div>
                                 <div class="col text-danger">Club Point - {{ $game->point ? $game->point->club_point : 0 }} <input type="text" name="club_point" placeholder="Point"> </div>
+
+                                <div class="col">
+                                    <label for="Default select example">Winner</label>
+                                    <select name="winner" class="form-select form-select-sm" aria-label="Default select example">
+                                        <option value="" selected>Select a member...</option>
+
+                                        @foreach($members as $member)
+                                            <option value='{"member_id":"{{$member->id}}", "member_name":"{{$member->name}}"}'>{{$member->name}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label>Hunter </label>
+                                    <select name="hunter" class="form-select form-select-sm" aria-label="Default select example2">
+                                        <option value="" selected>Select a member...</option>
+
+                                        @foreach($members as $member)
+                                            <option value='{"member_id":"{{$member->id}}", "member_name":"{{$member->name}}"}'>{{$member->name}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
                                 <div class="col text-danger">
-                                    <button class="btn btn-success">Save Point</button>
+                                    <button class="btn btn-success">Save Info</button>
                                 </div>
                             </div>
                         </form>
@@ -139,6 +163,7 @@
                                 <b class="prev-score-td-for-js">{{ $prevScore }}</b>
 
                             </td>
+
                             <td>
                                 <form action="{{ route('score-store') }}" method="post">
                                     @csrf
@@ -175,13 +200,13 @@
 
         <div class="col">
             <div class="alert alert-success ms-3 d-flex justify-content-center" role="alert">
-                Winner : Name
+                Winner : {{ $game->point ? ($game->point->winner ? json_decode($game->point->winner)->member_name : "") : "" }}
             </div>
         </div>
 
         <div class="col">
             <div class="alert alert-danger d-flex justify-content-center" role="alert">
-                Hunter : Name
+                Hunter : {{ $game->point ? ($game->point->hunter ? json_decode($game->point->hunter)->member_name : "") : "" }}
             </div>
         </div>
         <div class="col"></div>
