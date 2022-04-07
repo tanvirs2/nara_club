@@ -42,13 +42,13 @@ class PointController extends Controller
             "club_point" => "integer|nullable",
         ]);
 
-        $latest = Point::latest()->first();
-        //dd($latest->club_point);
+        $latest = Point::where('game_id', $request->game_id)->latest()->first();
+        //dd($latest);
 
 
         $point = new Point();
-        $point->match_point = $request->match_point ?? $latest->match_point;
-        $point->club_point = $request->club_point ?? $latest->club_point;
+        $point->match_point = $request->match_point ?? ($latest ? $latest->match_point : 0);
+        $point->club_point = $request->club_point ?? ($latest ? $latest->club_point : 0);
         $point->game_id = $request->game_id;
 
         $point->save();

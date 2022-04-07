@@ -34,8 +34,8 @@
                             <div class="row">
                                 <input type="hidden" name="game_id" size="6" value="{{ $game->id }}">
 
-                                <div class="col text-danger">Match Point - {{$game->point?$game->point->match_point: 0}} <input type="text" name="match_point" placeholder="Point"> </div>
-                                <div class="col text-danger">Club Point - {{$game->point?$game->point->club_point: 0}} <input type="text" name="club_point" placeholder="Point"> </div>
+                                <div class="col text-danger">Match Point - {{ $game->point ? $game->point->match_point : 0 }} <input type="text" name="match_point" placeholder="Point"> </div>
+                                <div class="col text-danger">Club Point - {{ $game->point ? $game->point->club_point : 0 }} <input type="text" name="club_point" placeholder="Point"> </div>
                                 <div class="col text-danger">
                                     <button class="btn btn-success">Save Point</button>
                                 </div>
@@ -170,7 +170,7 @@
 
     <br>
 
-    {{--<div class="row">
+    <div class="row">
         <div class="col"></div>
 
         <div class="col">
@@ -185,5 +185,5 @@
             </div>
         </div>
         <div class="col"></div>
-    </div>--}}
+    </div>
 </div>
