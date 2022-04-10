@@ -1,5 +1,6 @@
 
 
+
 <div class="border border-dark pe-3 mb-5 game-frame-for-js" style="background: #ffffff">
 
     <div class="row">
@@ -200,13 +201,35 @@
 
         <div class="col">
             <div class="alert alert-success ms-3 d-flex justify-content-center" role="alert">
-                Winner : {{ $game->point ? ($game->point->winner ? json_decode($game->point->winner)->member_name : "") : "" }}
+                @php
+
+                    $gamePointData = gamePoint($game, 'winner');
+
+                @endphp
+
+                Winner : {{ $gamePointData->member_name }}
+
+                <br>
+
+                Point : {{ count($members) * $gamePointData->match_point - $gamePointData->club_point }}
+
             </div>
         </div>
 
         <div class="col">
             <div class="alert alert-danger d-flex justify-content-center" role="alert">
-                Hunter : {{ $game->point ? ($game->point->hunter ? json_decode($game->point->hunter)->member_name : "") : "" }}
+
+                @php
+
+                    $gamePointData = gamePoint($game, 'hunter');
+
+                @endphp
+
+                Hunter : {{ $gamePointData->member_name }}
+
+                <br>
+
+                Point : {{ $gamePointData->match_point }}
             </div>
         </div>
         <div class="col"></div>

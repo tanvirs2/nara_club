@@ -39,6 +39,41 @@
     </div>
 
 
+    @php
+
+        function gamePoint($game, $type){
+
+            $gamePointObj = new StdClass; //member_id member_name
+            $gamePointObj->member_id = 0;
+            $gamePointObj->member_name = 'Not Set';
+            $gamePointObj->match_point = 0;
+            $gamePointObj->club_point = 0;
+
+
+            if ($game->point){
+                if ($game->point->$type){
+
+                    $gamePointObj = json_decode($game->point->$type);
+                    $gamePointObj->match_point = $game->point->match_point;
+                    $gamePointObj->club_point = $game->point->club_point;
+
+                }
+            }
+
+            /*{#1381 ▼
+              +"member_id": "30"
+              +"member_name": "Tanvir"
+              +"match_point": 10
+              +"club_point": 0
+            }*/
+
+            //dump($gamePointObj);
+
+            return ($gamePointObj);
+        }
+
+    @endphp
+
 
 @if($type == 'single' && isset($games->member))
     @php
