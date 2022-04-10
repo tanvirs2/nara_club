@@ -46,26 +46,30 @@
             $gamePointObj = new StdClass;
             $gamePointObj->member_id = 0;
             $gamePointObj->member_name = 'Not Set';
+
             $gamePointObj->match_point = 0;
             $gamePointObj->club_point = 0;
+            $gamePointObj->hunter_match_point = 0;
 
 
             if ($game->point){
                 if ($game->point->$type){
 
-                    $gamePointObj = json_decode($game->point->$type);
+                    $gamePointObj = (object) array_merge(
+                        (array) $gamePointObj,
+                        (array) json_decode($game->point->$type)
+                    );
+
                     $gamePointObj->match_point = $game->point->match_point;
                     $gamePointObj->club_point = $game->point->club_point;
 
+
+                    if (json_decode($game->point->hunter)) {
+                        $gamePointObj->hunter_match_point = $game->point->match_point;
+                    }
+
                 }
             }
-
-            /*{#1381 ▼
-              +"member_id": "30"
-              +"member_name": "Tanvir"
-              +"match_point": 10
-              +"club_point": 0
-            }*/
 
             return ($gamePointObj);
         }

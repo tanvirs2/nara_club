@@ -211,7 +211,7 @@
 
                 <br>
 
-                Point : {{ (((count($members) - 1) * $gamePointData->match_point) - $gamePointData->club_point) - $gamePointData->match_point }}
+                Point : {{ (((count($members) - 1) * $gamePointData->match_point) - $gamePointData->club_point) - $gamePointData->hunter_match_point }}
 
             </div>
         </div>
