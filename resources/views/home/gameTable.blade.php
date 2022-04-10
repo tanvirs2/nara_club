@@ -35,7 +35,7 @@
                             <div class="row">
                                 <input type="hidden" name="game_id" size="6" value="{{ $game->id }}">
 
-                                <div class="col text-danger">Match Point - {{ $game->point ? $game->point->match_point : 0 }} <input type="text" name="match_point" placeholder="Point"> </div>
+                                <div class="col">Match Point - {{ $game->point ? $game->point->match_point : 0 }} <input type="text" name="match_point" placeholder="Point"> </div>
                                 <div class="col text-danger">Club Point - {{ $game->point ? $game->point->club_point : 0 }} <input type="text" name="club_point" placeholder="Point"> </div>
 
                                 <div class="col">
@@ -211,7 +211,7 @@
 
                 <br>
 
-                Point : {{ ((count($members) - 1) * $gamePointData->match_point) - $gamePointData->club_point }}
+                Point : {{ (((count($members) - 1) * $gamePointData->match_point) - $gamePointData->club_point) - $gamePointData->match_point }}
 
             </div>
         </div>

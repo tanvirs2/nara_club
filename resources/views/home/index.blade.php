@@ -43,7 +43,7 @@
 
         function gamePoint($game, $type){
 
-            $gamePointObj = new StdClass; //member_id member_name
+            $gamePointObj = new StdClass;
             $gamePointObj->member_id = 0;
             $gamePointObj->member_name = 'Not Set';
             $gamePointObj->match_point = 0;
@@ -66,8 +66,6 @@
               +"match_point": 10
               +"club_point": 0
             }*/
-
-            //dump($gamePointObj);
 
             return ($gamePointObj);
         }
