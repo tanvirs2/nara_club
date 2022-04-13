@@ -107,7 +107,7 @@
                                 <td>
 
 
-                                    {{ $prevScore }}
+                                    {{ $score->multiply ? $prevScore * $score->multiply : $prevScore}}
 
 
                                 </td>
@@ -122,10 +122,15 @@
                                             <table>
                                                 <tr>
                                                     <td>
-                                                        <input type="number" name="score" size="6" value="{{ $score->score }}" style="background: {{$colors[$colorIndex-1]}}">
+                                                        <label>
+                                                            <input type="number" name="score" size="6" value="{{ $score->score }}" style="background: {{$colors[$colorIndex-1]}}">
+                                                        </label>
                                                     </td>
                                                     <td>
                                                         <button class="btn btn-sm btn-outline-dark">Update</button>
+                                                    </td>
+                                                    <td>
+                                                        &nbsp;<button class="btn btn-sm @if($score->multiply) btn-danger @endif btn-secondary" name="multiply" value="2">*</button>
                                                     </td>
                                                 </tr>
                                             </table>

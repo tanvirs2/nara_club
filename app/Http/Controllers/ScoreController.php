@@ -81,13 +81,14 @@ class ScoreController extends Controller
      */
     public function update(Request $request, Score $score)
     {
-        //dd($score);
+        //dd($request->all());
         $request->validate([
             "score" => "required"
         ]);
 
         //$score = new Score();
         $score->score = $request->score;
+        $score->multiply = $request->multiply;
         //$score->member_id = $request->member_id;
 
         $score->save();
