@@ -35,8 +35,8 @@
                             <div class="row">
                                 <input type="hidden" name="game_id" size="6" value="{{ $game->id }}">
 
-                                <div class="col">Match Point - {{ $game->point ? $game->point->match_point : 0 }} <input type="text" name="match_point" placeholder="Point"> </div>
-                                <div class="col text-danger">Club Point - {{ $game->point ? $game->point->club_point : 0 }} <input type="text" name="club_point" placeholder="Point"> </div>
+                                <div class="col">Match - {{ $game->point ? $game->point->match_point : 0 }} <input type="text" name="match_point" placeholder="Point"> </div>
+                                <div class="col text-danger">Club - {{ $game->point ? $game->point->club_point : 0 }} <input type="text" name="club_point" placeholder="Point"> </div>
 
                                 <div class="col">
                                     <label for="Default select example">Winner</label>
@@ -107,7 +107,9 @@
                                 <td>
 
 
-                                    {{ $score->multiply ? $prevScore * $score->multiply : $prevScore}}
+                                    {{$prevScore}}
+
+                                    {{--{{ $score->multiply ? $prevScore * $score->multiply : $prevScore}}--}}
 
 
                                 </td>
@@ -130,7 +132,8 @@
                                                         <button class="btn btn-sm btn-outline-dark">Update</button>
                                                     </td>
                                                     <td>
-                                                        &nbsp;<button class="btn btn-sm @if($score->multiply) btn-danger @endif btn-secondary" name="multiply" value="2">*</button>
+                                                        &nbsp;<span> @if($score->multiply) * @endif </span>
+                                                        {{--<button class="btn btn-sm @if($score->multiply) btn-danger @endif btn-secondary" name="multiply" value="2">*</button>--}}
                                                     </td>
                                                 </tr>
                                             </table>
@@ -144,7 +147,7 @@
                                                     {{ $score->score }}
                                                 </td>
                                                 <td>
-
+                                                    <span> @if($score->multiply) * @endif </span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -182,6 +185,7 @@
                                             </td>
                                             <td>
                                                 <button class="btn btn-sm btn-dark">Save</button>
+                                                <button class="btn btn-sm btn-outline-danger" name="multiply" value="2">*</button>
                                             </td>
                                         </tr>
                                     </table>

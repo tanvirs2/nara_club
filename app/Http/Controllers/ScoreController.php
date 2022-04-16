@@ -43,6 +43,14 @@ class ScoreController extends Controller
 
         $score = new Score();
         $score->score = $request->score;
+
+        if ($request->has('multiply')) {
+            $score->score = $request->score * $request->multiply;
+            $score->multiply = $request->multiply;
+        }
+
+        //dd($request->all());
+
         $score->member_id = $request->member_id;
 
         $score->save();
