@@ -27,6 +27,7 @@ Route::post('member-store/', 'MemberController@store')->name('member-store');
 
 //game
 Route::post('game-store/', 'GameController@store')->name('game-store');
+Route::get('game-delete/{game}', 'GameController@destroy')->name('game-delete');
 
 //point
 Route::post('point-store/', 'PointController@store')->name('point-store');
