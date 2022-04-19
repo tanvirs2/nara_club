@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <title>Document</title>
+    <title>NCL Game</title>
     <style>
         body {
             font-size: 150%;

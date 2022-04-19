@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col">
             <div class="m-3">
-                <b class="text-info">{{ $game->name }}</b>
+                <b class="text-info"> {{ $game->created_at->toDateString() }} {{ $game->name }}</b>
 
                 @if($type !== 'single')
 

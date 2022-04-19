@@ -36,12 +36,22 @@ class GameController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        $request->validate([
+        /*$request->validate([
             "name" => "required",
-        ]);
+        ]);*/
 
         $member = new Game();
-        $member->name = $request->name;
+
+        $latest = $member
+            ->whereDate('created_at', date('Y-m-d'))
+            ->latest()
+            ->first();
+
+        $gameName = $latest ? (int) $latest->name + 1 : 1;
+
+        //dd($gameName);
+
+        $member->name = $gameName;
 
         $member->save();
 
