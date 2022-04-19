@@ -100,6 +100,9 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        //
+        //dd($game);
+        $game->status = 'suspend';
+        $game->save();
+        return redirect()->route('home');
     }
 }
