@@ -6,7 +6,9 @@
     <div class="row">
         <div class="col">
             <div class="m-3">
-                <b class="text-info"> {{ $game->created_at->toDateString() }} {{ $game->name }}</b>
+                <b class="text-info"> {{ $game->name }} - ( {{ $game->created_at->format('h:i') }} )</b>
+
+                {{--{{ $game->created_at->toDateString() }} {{ $game->name }}--}}
 
                 @if($type !== 'single')
 
@@ -27,9 +29,17 @@
                             <input type="text" name="address" placeholder="address">
                             <button class="btn btn-outline-success">Save Player</button>
                         </form>
+
+                    </div>
+
+                    <div class="col-1">
+                        <div class="border border-success rounded ps-2">
+                            {{ $game->created_at->format('y-m-d') }}
+                        </div>
                     </div>
 
                     <div class="col">
+
                         <form action="{{ route('point-store') }}" method="post">
                             @csrf
                             <div class="row">

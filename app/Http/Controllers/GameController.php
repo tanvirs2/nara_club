@@ -55,7 +55,7 @@ class GameController extends Controller
 
         $member->save();
 
-        return redirect()->back();
+        return redirect()->route('home');
     }
 
     /**
