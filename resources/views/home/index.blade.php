@@ -168,6 +168,47 @@
         //prevScore prev-score-td-for-js
     }
 
+
+
+    function passwordPrompt(url) {
+
+
+        let setPassword = 13579, goForDelete = false;
+
+        Swal.fire({
+            title: 'Type your Password',
+            input: 'password',
+            inputAttributes: {
+                autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            showLoaderOnConfirm: true,
+            preConfirm: (login) => {
+                return login;
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                if (result.value === String(setPassword)) {
+                    goForDelete = true;
+
+                    window.location.href = url
+
+                } else if(result.value) {
+                    Swal.fire({
+                        title: `Wrong Password!`,
+                    });
+                }
+            }
+
+        })
+
+
+        return goForDelete
+    }
+
 </script>
 
 
