@@ -150,22 +150,9 @@
             maxObj && maxObj.elm.parentElement.classList.add("bg-danger", "text-light");
             minObj && minObj.elm.parentElement.classList.add("bg-success", "text-light");
 
-            //maxObj && maxObj.elm.parentElement.classList.remove("bg-white");
-            //minObj && minObj.elm.parentElement.classList.remove("bg-white");
-
-            //maxObj && maxObj.elm.parentElement.setAttribute("style", "background-color:red !important");
-            //minObj && minObj.elm.parentElement.setAttribute("style", "background-color:green !important");
-
-            //maxObj && maxObj.elm.parentElement.classList.remove("text-dark");
-            //minObj && minObj.elm.parentElement.classList.remove("text-dark");
-
-
-            //console.log(index, '--->', maxObj );
-
         });
 
 
-        //prevScore prev-score-td-for-js
     }
 
 
@@ -176,7 +163,7 @@
         let setPassword = 13579, goForDelete = false;
 
         Swal.fire({
-            title: 'Type your Password',
+            title: 'Please enter Password',
             input: 'password',
             inputAttributes: {
                 autocapitalize: 'off'
