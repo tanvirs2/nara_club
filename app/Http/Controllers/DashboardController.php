@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\MemberLib;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -27,8 +28,11 @@ class DashboardController extends Controller
             $games = $query->find($request->get('id'));
         }
 
+        $membersFromLib = MemberLib::all();
 
 
+
+        //dd($memberFromLib);
         //dd(count($games));
         //dd($games->member);
 
@@ -53,11 +57,8 @@ class DashboardController extends Controller
             '#a29bfe',
             '#e17055',
         ];
-        /*$colors = [
-            ''
-        ];*/
 
-        $comp = compact('games', 'type', 'colors');
+        $comp = compact('games', 'type', 'colors', 'membersFromLib');
 
         //return $members;
         return view('home.index', $comp);

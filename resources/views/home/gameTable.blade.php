@@ -30,6 +30,16 @@
                             <button class="btn btn-outline-success">Save Player</button>
                         </form>
 
+                        <label for="selectMember">Winner</label>
+                        <select name="winner" class="form-select form-select-sm" aria-label="selectMember">
+                            <option value="" selected>Select a member...</option>
+
+                            @foreach($members as $member)
+                                <option value='{"member_id":"{{$member->id}}", "member_name":"{{$member->name}}"}'>{{$member->name}}</option>
+                            @endforeach
+
+                        </select>
+
                     </div>
 
                     <div class="col-1">
