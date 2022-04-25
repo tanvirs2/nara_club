@@ -13,4 +13,9 @@ class Member extends Model
     {
         return $this->hasMany(Score::class);
     }
+
+    public function memberLib()
+    {
+        return $this->belongsTo(MemberLib::class);
+    }
 }

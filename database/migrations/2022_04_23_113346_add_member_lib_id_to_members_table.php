@@ -15,7 +15,7 @@ class AddMemberLibIdToMembersTable extends Migration
     {
         Schema::table('members', function (Blueprint $table) {
             $table->string('name')->nullable()->change();
-            $table->string('memberLib_id')->after('game_id');
+            $table->string('member_lib_id')->after('game_id');
         });
     }
 
@@ -27,8 +27,8 @@ class AddMemberLibIdToMembersTable extends Migration
     public function down()
     {
         Schema::table('members', function (Blueprint $table) {
-            $table->string('name');
-            $table->dropColumn('memberLib_id');
+            $table->string('name')->change();
+            $table->dropColumn('member_lib_id');
         });
     }
 }

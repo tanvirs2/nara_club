@@ -29,10 +29,30 @@ class DashboardController extends Controller
         }
 
         $membersFromLib = MemberLib::all();
+        /*$member = Member::all()->unique('name');
 
 
+        foreach ($member as $m) {
+            //dump($m->name); memberLib_id
+            $memberLibForInsert = new MemberLib();
+            $memberLibForInsert->name = $m->name;
+            $memberLibForInsert->email = $m->email;
+            $memberLibForInsert->phone = $m->phone;
+            $memberLibForInsert->address = $m->address;
+            //$memberLibForInsert->save();
 
-        //dd($memberFromLib);
+            $m->memberLib_id = $memberLibForInsert->id;
+            $m->save();
+        }
+
+        foreach (Member::all() as $me) {
+            $cc = MemberLib::where('name', $me->name)->first();
+            $me->memberLib_id = $cc->id;
+            $me->save();
+        }
+
+        dd($member);*/
+
         //dd(count($games));
         //dd($games->member);
 

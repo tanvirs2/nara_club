@@ -31,6 +31,7 @@
                     <button class="btn btn-outline-success" onclick="return confirm('Are you sure to create new game?')">Start new Game</button>
 
                     <a class="btn btn-primary" href="{{ route('home', ['games' => 'all']) }}">All</a>
+                    <a class="btn btn-info" href="{{ route('home', ['games' => 'all']) }}">Member Library</a>
                     <br>
                     <br>
                 </form>

@@ -15,7 +15,7 @@ class CreateMemberLibsTable extends Migration
     {
         Schema::create('member_libs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
