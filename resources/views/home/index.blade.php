@@ -151,22 +151,50 @@
             maxObj && maxObj.elm.parentElement.classList.add("bg-danger", "text-light");
             minObj && minObj.elm.parentElement.classList.add("bg-success", "text-light");
 
-            //maxObj && maxObj.elm.parentElement.classList.remove("bg-white");
-            //minObj && minObj.elm.parentElement.classList.remove("bg-white");
-
-            //maxObj && maxObj.elm.parentElement.setAttribute("style", "background-color:red !important");
-            //minObj && minObj.elm.parentElement.setAttribute("style", "background-color:green !important");
-
-            //maxObj && maxObj.elm.parentElement.classList.remove("text-dark");
-            //minObj && minObj.elm.parentElement.classList.remove("text-dark");
-
-
-            //console.log(index, '--->', maxObj );
-
         });
 
 
-        //prevScore prev-score-td-for-js
+    }
+
+
+
+    function passwordPrompt(url) {
+
+
+        let setPassword = 13579, goForDelete = false;
+
+        Swal.fire({
+            title: 'Please enter Password',
+            input: 'password',
+            inputAttributes: {
+                autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            showLoaderOnConfirm: true,
+            preConfirm: (login) => {
+                return login;
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                if (result.value === String(setPassword)) {
+                    goForDelete = true;
+
+                    window.location.href = url
+
+                } else if(result.value) {
+                    Swal.fire({
+                        title: `Wrong Password!`,
+                    });
+                }
+            }
+
+        })
+
+
+        return goForDelete
     }
 
 </script>

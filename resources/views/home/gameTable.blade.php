@@ -83,7 +83,7 @@
 
                                 <div class="col text-danger">
                                     <button class="btn btn-success">Save Info</button>
-                                    <a class="btn btn-danger" onclick="return confirm('delete ?')" href="{{ route('game-delete', $game->id) }}">Delete</a>
+                                    <a class="btn btn-danger" onclick="return passwordPrompt('{{ route('game-delete', $game->id) }}')" href="#">Delete</a>
                                 </div>
                             </div>
                         </form>
