@@ -36,7 +36,7 @@
 
                                 </select>
 
-                                <button class="btn btn-outline-success">Set Player</button>
+                                <button class="btn btn-outline-success">Get Player</button>
 
                             </div>
 

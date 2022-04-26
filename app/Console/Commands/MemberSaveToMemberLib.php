@@ -46,18 +46,22 @@ class MemberSaveToMemberLib extends Command
 
         try {
             foreach ($uniqueMember as $m) {
-                $memberLibForInsert = new MemberLib();
-                $memberLibForInsert->name = $m->name;
-                $memberLibForInsert->email = $m->email;
-                $memberLibForInsert->phone = $m->phone;
-                $memberLibForInsert->address = $m->address;
-                $memberLibForInsert->save();
+                if ($m->name) {
+                    $memberLibForInsert = new MemberLib();
+                    $memberLibForInsert->name = $m->name;
+                    $memberLibForInsert->email = $m->email;
+                    $memberLibForInsert->phone = $m->phone;
+                    $memberLibForInsert->address = $m->address;
+                    $memberLibForInsert->save();
+                }
             }
 
             foreach (Member::all() as $m2) {
-                $mLib = MemberLib::where('name', $m2->name)->first();
-                $m2->member_lib_id = $mLib->id;
-                $m2->save();
+                if ($m2->name) {
+                    $mLib = MemberLib::where('name', $m2->name)->first();
+                    $m2->member_lib_id = $mLib->id;
+                    $m2->save();
+                }
             }
             $this->info('The command was successful!');
         } catch (\Exception $exception) {

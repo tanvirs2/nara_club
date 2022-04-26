@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Member;
 use App\Models\MemberLib;
 use Illuminate\Http\Request;
 
@@ -29,29 +30,34 @@ class DashboardController extends Controller
         }
 
         $membersFromLib = MemberLib::latest('id')->get();
-        /*$member = Member::all()->unique('name');
+        /*$uniqueMember = Member::all()->unique('name');
 
+        //dd($uniqueMember);
 
-        foreach ($member as $m) {
-            //dump($m->name); memberLib_id
+        foreach ($uniqueMember as $m) {
             $memberLibForInsert = new MemberLib();
-            $memberLibForInsert->name = $m->name;
-            $memberLibForInsert->email = $m->email;
-            $memberLibForInsert->phone = $m->phone;
-            $memberLibForInsert->address = $m->address;
-            //$memberLibForInsert->save();
+            if ($m->name) {
+                $memberLibForInsert->name = $m->name;
+                $memberLibForInsert->email = $m->email;
+                $memberLibForInsert->phone = $m->phone;
+                $memberLibForInsert->address = $m->address;
+                $memberLibForInsert->save();
+            }
 
-            $m->memberLib_id = $memberLibForInsert->id;
-            $m->save();
         }
 
-        foreach (Member::all() as $me) {
-            $cc = MemberLib::where('name', $me->name)->first();
-            $me->memberLib_id = $cc->id;
-            $me->save();
+        //dd($uniqueMember);
+
+
+        foreach (Member::all() as $m2) {
+            if ($m2->name) {
+                $mLib = MemberLib::where('name', $m2->name)->first();
+                $m2->member_lib_id = $mLib->id;
+                $m2->save();
+            }
         }
 
-        dd($member);*/
+        dd($uniqueMember);*/
 
         //dd(count($games));
         //dd($games->member);
