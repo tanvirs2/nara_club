@@ -14,7 +14,11 @@ class MemberLibController extends Controller
      */
     public function index()
     {
-        //
+        $allMembersFromLib = MemberLib::latest('id')->get();
+
+        $comp = compact('allMembersFromLib');
+
+        return view('memberLib.index', $comp);
     }
 
     /**
@@ -35,7 +39,20 @@ class MemberLibController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $request->validate([
+            "name" => "required",
+        ]);
+
+        $member = new MemberLib();
+        $member->name = $request->name;
+        $member->email = $request->email;
+        $member->phone = $request->phone;
+        $member->address = $request->address;
+
+        $member->save();
+
+        return redirect()->back();
     }
 
     /**

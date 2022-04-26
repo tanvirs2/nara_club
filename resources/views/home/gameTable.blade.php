@@ -18,27 +18,33 @@
 
                 <br>
 
-                <div class="row">
-                    <div class="col-5">
+                <div class="row mt-3">
+                    <div class="col-2">
                         <form action="{{ route('member-store') }}" method="post">
                             @csrf
                             <input type="hidden" name="game_id" size="6" value="{{ $game->id }}">
-                            <input type="text" name="name" placeholder="name">
-                            <input type="text" name="email" placeholder="email">
-                            <input type="text" name="phone" placeholder="phone">
-                            <input type="text" name="address" placeholder="address">
-                            <button class="btn btn-outline-success">Save Player</button>
+
+
+                            <div class="input-group">
+
+                                <select name="member_lib_id" class="form-control form-select" aria-label="selectMember">
+                                    <option value="" selected>Select a member...</option>
+
+                                    @foreach($membersFromLib as $member)
+                                        <option value="{{$member->id}}">{{$member->name}}</option>
+                                    @endforeach
+
+                                </select>
+
+                                <button class="btn btn-outline-success">Set Player</button>
+
+                            </div>
+
+
+
                         </form>
 
-                        <label for="selectMember">Get Member</label>
-                        <select name="member_lib_id" class="form-select form-select-sm" aria-label="selectMember">
-                            <option value="" selected>Select a member...</option>
 
-                            @foreach($membersFromLib as $member)
-                                <option value="{{$member->id}}">{{$member->name}}</option>
-                            @endforeach
-
-                        </select>
 
                     </div>
 
@@ -64,7 +70,7 @@
                                         <option value="" selected>Select a member...</option>
 
                                         @foreach($members as $member)
-                                            <option value='{"member_id":"{{$member->id}}", "member_name":"{{$member->name}}"}'>{{$member->name}}</option>
+                                            <option value='{"member_id":"{{$member->memberLib->id}}", "member_name":"{{$member->memberLib->name}}"}'>{{$member->memberLib->name}}</option>
                                         @endforeach
 
                                     </select>
@@ -75,7 +81,7 @@
                                         <option value="" selected>Select a member...</option>
 
                                         @foreach($members as $member)
-                                            <option value='{"member_id":"{{$member->id}}", "member_name":"{{$member->name}}"}'>{{$member->name}}</option>
+                                            <option value='{"member_id":"{{$member->memberLib->id}}", "member_name":"{{$member->memberLib->name}}"}'>{{$member->memberLib->name}}</option>
                                         @endforeach
 
                                     </select>

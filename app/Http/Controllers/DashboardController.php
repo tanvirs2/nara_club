@@ -28,7 +28,7 @@ class DashboardController extends Controller
             $games = $query->find($request->get('id'));
         }
 
-        $membersFromLib = MemberLib::all();
+        $membersFromLib = MemberLib::latest('id')->get();
         /*$member = Member::all()->unique('name');
 
 
