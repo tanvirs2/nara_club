@@ -40,6 +40,19 @@ class MemberController extends Controller
             "game_id" => "required",
         ]);
 
+        $thisGame = Member::where(
+            [
+                ['game_id', $request->game_id],
+                ['member_lib_id', $request->member_lib_id]
+            ])->first();
+
+        //dd($thisGame);
+
+        if ($thisGame) {
+            return redirect()->back();
+        }
+
+
         $member = new Member();
         $member->game_id = $request->game_id;
         $member->member_lib_id = $request->member_lib_id;
